@@ -1,0 +1,48 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+
+<body>
+	
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+            
+			<form class="login">
+                <h2>Registro</h2>
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="text" class="login__input" placeholder="Usuario" [(ngModel)]="usuario" name="usuario">
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-user"></i>
+					<input type="text" class="login__input" placeholder="Email" [(ngModel)]="email" name="email">
+				</div>
+				<div class="login__field">
+					<i class="login__icon fas fa-lock"></i>
+					<input type="password" class="login__input" placeholder="Password" [(ngModel)]="password" name="password" >
+				</div>
+				<button class="button login__submit" (click)="register()" >
+					<span class="button__text">Registrar</span>
+					<i class="material-symbols-outlined fas fa-lock">
+						chevron_right
+					</i>
+				</button>				
+			</form>
+			<div class="social-login">
+				<a routerLink="" mat-icon-button>
+					<i class="material-symbols-outlined">
+						arrow_back_ios
+					</i>
+				</a>
+			</div>
+		</div>
+		
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
+
+</body>

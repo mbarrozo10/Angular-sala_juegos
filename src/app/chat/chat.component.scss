@@ -1,0 +1,61 @@
+.main-container{
+    margin-top: 40px;
+    margin-bottom: 150px;
+  }
+  
+  
+  .chat-window{
+    padding: 10px;
+    width: 300px;
+    height: 300px;
+    overflow: hidden;
+    border: 1px solid #4080FF;
+    border-radius: 20px;
+  }
+  .chat{
+  overflow-y:scroll;
+  height:270px;
+  }
+  .app-mensajes, .text-right{
+   
+    
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+  }
+
+  .app-mensajesL, .text-left{
+    // overflow-y:scroll;
+    // height:270px;
+    padding: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+  }
+  
+  /* Animaciones */
+  .animated {
+    -webkit-animation-duration: 1s;
+    animation-duration: 1s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+  
+  .fast {
+    -webkit-animation-duration: 0.3s;
+    animation-duration: 0.3s;
+    -webkit-animation-fill-mode: both;
+    animation-fill-mode: both;
+  }
+
+
+  .custom-button {
+    background-color:#776BCC; /* Replace with your custom color code */
+    color: #fff; 
+  }
+
+  .color{
+    background-color:#776BCC; 
+    color: #fff;
+  }

@@ -1,0 +1,16 @@
+<div class="container">
+    <h1 class="text-center">Mayor o menor</h1>
+    <mat-progress-bar  mode="determinate" value={{cantidad}}></mat-progress-bar>
+    <h2>Carta: {{carta}}</h2>
+    <h2>Puntos: {{puntos}}</h2>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <button  mat-fab extended color="primary" (click)="verificar('m')" >Mayor</button>
+            </div>
+            <div class="col">
+                <button  mat-fab extended color="primary" (click)="verificar('n')" >Menor</button>
+            </div>
+        </div>
+    </div>
+</div>

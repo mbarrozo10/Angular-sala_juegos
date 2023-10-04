@@ -1,0 +1,17 @@
+.keyboard-button {
+    width: 40px;
+    height: 40px;
+    margin: 5px;
+    font-size: 18px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  /* Estilos para el contenedor de botones */
+  .keyboard-container {
+    display:inline-flex;
+    flex-direction: row;
+    // flex-wrap: wrap;
+    justify-content: center;
+  }

@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+<body>
+	
+<div class="container">
+	<div class="screen">
+		<div class="screen__content">
+            
+			<form class="login">
+                <h2>Login</h2>
+				<div class="login__field">
+					<i id="iconoUser" class="material-symbols-outlined">
+						person
+					</i>
+					<input type="text" class="login__input" placeholder="User" [(ngModel)]="email" name="email">
+					
+				</div>
+				<div class="login__field">
+					<i id="iconoUser" class="material-symbols-outlined">
+						lock
+					</i>
+					<input type="password" class="login__input" placeholder="Password"  
+                     [(ngModel)]="password" name="password" >
+				</div>
+				<button class="button login__submit" 
+                     (click)="login()">
+					<span class="button__text">Log In</span>
+					<i class="material-symbols-outlined fas fa-lock">
+						chevron_right
+					</i>
+				</button>		
+			</form>
+			<div class="social-login">
+				<h3>
+					<a routerLink="/registro">Registro</a>
+                </h3>
+				<a (click)="Autocompletar()" mat-icon-button>
+					<i class="material-symbols-outlined">
+						done
+					</i>
+				</a>
+			</div>
+		</div>
+		<div class="screen__background">
+			<span class="screen__background__shape screen__background__shape4"></span>
+			<span class="screen__background__shape screen__background__shape3"></span>		
+			<span class="screen__background__shape screen__background__shape2"></span>
+			<span class="screen__background__shape screen__background__shape1"></span>
+		</div>		
+	</div>
+</div>
+
+</body>
