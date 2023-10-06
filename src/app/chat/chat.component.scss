@@ -4,21 +4,20 @@
   }
   
   
-  .chat-window{
+   body{
     padding: 10px;
-    width: 300px;
-    height: 300px;
+    width: 100%;
+    height: 100%;
     overflow: hidden;
-    border: 1px solid #4080FF;
+    border: 5px solid #4080FF;
     border-radius: 20px;
+    margin-top: 10px;
   }
   .chat{
   overflow-y:scroll;
   height:270px;
   }
   .app-mensajes, .text-right{
-   
-    
     padding: 5px;
     display: flex;
     flex-direction: column;
@@ -58,4 +57,23 @@
   .color{
     background-color:#776BCC; 
     color: #fff;
+  }
+
+  .mensaje{
+    margin-top: 10px;
+    font-size: 30px;
+    border-radius: 60px;
+    align-items:left;
+  }
+
+  #test{
+    font-size: 20px;
+  }
+
+  #mensajes{
+    border-radius: 20px;
+  }
+
+  #button-addon2, #floatingInput{
+    border-radius: 60px;
   }

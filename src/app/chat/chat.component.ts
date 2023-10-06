@@ -39,13 +39,13 @@ export class ChatComponent implements OnInit {
             if(x['usuario']==this.userService.retornarUsuario()){
               const datos= {
               div: "app-mensajes",
-              clase:  "badge rounded-pill text-bg color"
+              clase:  "badge text-bg color"
               }
               this.estilo.push(datos);
             }else{
               const datos= {
                 div: "app-mensajesL",
-                clase:  "badge rounded-pill text-bg-success"
+                clase:  "badge text-bg-success"
                 }
                 this.estilo.push(datos);
             }

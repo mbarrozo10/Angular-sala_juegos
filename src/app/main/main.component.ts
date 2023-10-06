@@ -1,6 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { UserService } from '../services/user.service';
-import { Router } from '@angular/router';
+
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { map } from 'rxjs/operators';
 @Component({

@@ -16,10 +16,11 @@ export class ChatService {
    addChatMessage( mensaje : string, usuario: string) { 
     this.conseguirUltimoId().then(async ()  => {
       const id= parseInt(this.ultimoid) +1
+      const fecha = new Date().toString().split('G');
       const data={
         id: id,
         mensaje: mensaje,
-        fecha: new Date().toString(),
+        fecha: fecha[0],
         usuario: usuario 
       }
       const placeRef = collection(this.firebase, 'ChatRoom');

@@ -1,15 +1,20 @@
 <div class="container">
     <h1>Juego de Ahorcado</h1>
     
-    <h1 >La palabra es: {{palabraEscondida}}</h1>
+    <h2 >La palabra es: {{palabraEscondida}}</h2>
     
 
-    <h1>Vidas: {{vidas}}</h1>
+    <h2>Vidas: {{vidas}}</h2>
 </div>
-<div class="container">
-  <div class="keyboard-container" *ngFor="let letra of alfabeto">
-  <button class="btn btn-secondary keyboard-button " (click)="mostrarLetraEnConsola(letra)">{{ letra }}</button>
-</div>
+<div id="teclado" class="container">
+  <mat-grid-list cols="9" rowHeight="100px">
+        <div class="keyboard-container" *ngFor="let letra of alfabeto">
+          <!-- <div class="col"> -->
+            <mat-grid-tile>
+          <button [disabled]="letra['usada']" class="btn btn-secondary keyboard-button " (click)="mostrarLetraEnConsola(letra)">{{ letra['letra'] }}</button>
+            </mat-grid-tile>
 
-<h1>Letras Usadas: {{usadas}}</h1>
+        <!-- </div> -->
+      </div>
+    </mat-grid-list>
 </div>

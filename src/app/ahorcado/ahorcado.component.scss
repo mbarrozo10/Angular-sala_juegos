@@ -1,17 +1,30 @@
 .keyboard-button {
-    width: 40px;
-    height: 40px;
+    width: 100px;
+    height: 100px;
     margin: 5px;
-    font-size: 18px;
+    font-size: 60px;
     border: 1px solid #ccc;
     border-radius: 5px;
     cursor: pointer;
+    background-color:#4080FF ;
+  
   }
   
   /* Estilos para el contenedor de botones */
   .keyboard-container {
     display:inline-flex;
-    flex-direction: row;
+    flex-direction: column;
     // flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .container{
+    margin-top: 20px;
+  }
+
+  h1{
+    text-align: center;
+  }
+
+  #teclado{
   }

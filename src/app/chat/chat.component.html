@@ -1,12 +1,19 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+<body>
+    
+
 <div class="chat-windows" *ngIf="mostrar">
     <h1>Chat</h1>
     <hr>
     <div  class="chat" #chatContainer>
         <div *ngFor="let mensaje of mensajes; let i=index" [ngClass]="estilo[i]?.div">
         <p>{{mensaje.fecha}}</p>
-        <span [ngClass]="estilo[i]?.clase">{{mensaje.usuario}}</span>
-        <p>{{mensaje.mensaje}}</p>
+            <div id="mensajes"   [ngClass]="estilo[i]?.clase">
+                <div [ngClass]="estilo[i]?.div">
+                    <span id="test" >{{mensaje.usuario}} : <br></span>
+                    <p class="mensaje">{{mensaje.mensaje}}</p>
+                </div>
+            </div>
         </div>
     </div>
    
@@ -14,11 +21,12 @@
         <input class="form-control" type="text" id="floatingInput" name="mensaje" [(ngModel)]="mensaje" (keyup.enter)="enviarMensaje()" placeholder="Enviar Mensaje">
         <label for="floatingInput">Enviar Mensaje</label>
     
-        <button (click)="enviarMensaje()" class="btn btn-outline custom-button" type="button" id="button-addon2">
-            <span class="material-symbols-outlined">
+        <button  (click)="enviarMensaje()" class="btn btn-outline custom-button" type="button" id="button-addon2">
+            <i class="material-symbols-outlined">
                 arrow_forward_ios
-                </span>
+            </i>
         </button>
     </div>
     <button mat-raised-button (click)="salir()" id="ingresar">Salir</button>
 </div>
+</body>

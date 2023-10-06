@@ -8,6 +8,10 @@
 
 .sidenav .mat-toolbar {
   background: inherit;
+  
+}
+mat-toolbar{
+  margin-bottom: -20px;
 }
 
 .mat-toolbar.mat-primary {
@@ -16,6 +20,7 @@
   z-index: 1;
   // color: #776BCC;
   background-color: #776BCC
+  
 }
 
 span{
@@ -29,4 +34,9 @@ mat-nav-list {
 
 #salir{
   margin-top: auto;
+}
+
+body {
+  background: linear-gradient(90deg, #C7C5F4, #776BCC);		
+  background-color: #4C489D;
 }

@@ -28,7 +28,7 @@ export class LoginComponent {
         fecha: new Date()
       }
       const result = await this.userService.registrarLog(log);
-      this.router.navigateByUrl('/navigation',{replaceUrl: true});
+      this.router.navigateByUrl('navigation',{replaceUrl: true});
     }
     catch(error){
       console.log(error);
