@@ -1,0 +1,30 @@
+<h1>Batalla naval</h1>
+<div class="container">
+    <h1>{{turno}}</h1>
+    <div class="row">
+        <div class="col">
+            <!-- <div *ngFor="let fila of tabler"> -->
+                <p>{{jugadores}}</p>
+                <mat-grid-list cols="5" rowHeight="100px">
+                    <div *ngFor="let valor of tabler">
+                        <mat-grid-tile>
+                            <button  [disabled]="valor['usada']"  class="btn btn-primary keyboard-button " (click)="seleccionar(valor)">{{ valor['mostrar'] }}</button>
+                        </mat-grid-tile>
+                    </div>
+                </mat-grid-list>
+            <!-- </div> -->
+        </div>
+        <div class="col">
+            <!-- <div *ngFor="let fila of tabler"> -->
+                <p>PC</p>
+                <mat-grid-list cols="5" rowHeight="100px">
+                    <div *ngFor="let valor of tabler2">
+                        <mat-grid-tile>
+                            <button [disabled]="valor['usada']" class="btn btn-primary keyboard-button  " (click)="seleccionar(valor)" >{{ valor['mostrar'] }}</button>
+                        </mat-grid-tile>
+                    </div>
+                </mat-grid-list>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>

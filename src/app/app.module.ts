@@ -25,6 +25,10 @@ import { ProfileComponent } from './profile/profile.component';
 import { provideFirestore,getFirestore } from '@angular/fire/firestore';
 import { provideStorage,getStorage } from '@angular/fire/storage';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { PreguntasComponent } from './preguntas/preguntas.component';
+import { HttpClientModule } from '@angular/common/http';
+import { BatallaComponent } from './batalla/batalla.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -32,6 +36,8 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     MainComponent,
     RegistroComponent,
     ProfileComponent,
+    PreguntasComponent,
+    BatallaComponent,
   ],
   imports: [
     BrowserModule,
@@ -52,10 +58,9 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     MatInputModule,
     MatProgressBarModule,
     provideFirestore(() => getFirestore()),
-    provideStorage(() => getStorage()),
-    
+    provideStorage(() => getStorage()),HttpClientModule
   ],
-  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase }],
+  providers: [{ provide: FIREBASE_OPTIONS, useValue: environment.firebase },] ,
   bootstrap: [AppComponent]
 })
 export class AppModule { }

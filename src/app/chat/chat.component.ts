@@ -14,7 +14,6 @@ export class ChatComponent implements OnInit {
   mensajes: any[] = [];
   estilo: any[] = [];
   retorno?: any;
-  @ViewChild('chatContainer') chatContainer?: any;
     constructor(private chatService: ChatService, private userService: UserService,private rout: Router){}
     mensaje?: string;
 
@@ -54,11 +53,12 @@ export class ChatComponent implements OnInit {
       })
   
     }
+    @ViewChild('chatContainer') chatContainer?: any;
+
     scrollChatToBottom() {
       try {
         this.chatContainer.nativeElement.scrollTop = this.chatContainer.nativeElement.scrollHeight;
       } catch (err) {
-        // Manejar errores si los hubiera
       }
     }
 

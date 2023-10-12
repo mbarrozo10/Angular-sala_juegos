@@ -1,16 +1,31 @@
 <div class="container">
     <h1 class="text-center">Mayor o menor</h1>
-    <mat-progress-bar  mode="determinate" value={{cantidad}}></mat-progress-bar>
-    <h2>Carta: {{carta['valor']}}</h2>
-    <h2>Puntos: {{puntos}}</h2>
+    <mat-progress-bar color="warn" mode="determinate" value={{cantidad}}></mat-progress-bar>
+    <div class="text-center">
+        <h2>Puntos: {{puntos}}</h2>
+    </div>
     <div class="container">
-        <div class="row">
-            <div class="col">
-                <button  mat-fab extended color="primary" (click)="verificar('m')" >Mayor</button>
+        <mat-grid-list cols="3" rowHeight="400px">
+
+            <mat-grid-tile>
+                <div class="img">
+                <img [src]="ultima" alt="">
+                <h2>Ultima carta</h2>
             </div>
-            <div class="col">
+            </mat-grid-tile>
+            <mat-grid-tile >
+                <div class="botones">
+                <button  mat-fab extended color="primary" (click)="verificar('m')" >Mayor</button>
                 <button  mat-fab extended color="primary" (click)="verificar('n')" >Menor</button>
             </div>
-        </div>
+            </mat-grid-tile>
+            <mat-grid-tile>
+                <div class="img">
+                <img [src]="actual" alt="">
+                <h2>Nueva carta</h2>
+            </div>
+            </mat-grid-tile>
+        </mat-grid-list>
+
     </div>
 </div>

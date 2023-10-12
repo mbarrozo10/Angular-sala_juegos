@@ -1,10 +1,14 @@
+<body>
+  
+
 <div class="container">
     <h1>Juego de Ahorcado</h1>
-    
-    <h2 >La palabra es: {{palabraEscondida}}</h2>
-    
+    <div class="imagen">
+      <img [src]="imagen" alt="">
+      <h2>Vidas: {{vidas}}</h2>
+    </div>
+    <h2 class="palabra" >La palabra es: {{palabraEscondida}}</h2>
 
-    <h2>Vidas: {{vidas}}</h2>
 </div>
 <div id="teclado" class="container">
   <mat-grid-list cols="9" rowHeight="100px">
@@ -18,3 +22,4 @@
       </div>
     </mat-grid-list>
 </div>
+</body>

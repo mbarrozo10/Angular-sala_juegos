@@ -3,24 +3,15 @@ import Swal from 'sweetalert2';
 import { Router } from '@angular/router';
 import { UserService } from '../services/user.service';
 
-export interface Tile {
-  color: string;
-  cols: number;
-  rows: number;
-  text: string;
-}
 @Component({
   selector: 'app-ahorcado',
   templateUrl: './ahorcado.component.html',
   styleUrls: ['../bootstrap.min.css','./ahorcado.component.scss']
 })
 export class AhorcadoComponent {
-  tiles: Tile[] = [
-    {text: 'One', cols: 3, rows: 1, color: 'lightblue'},
-    {text: 'Two', cols: 1, rows: 2, color: 'lightgreen'},
-    {text: 'Three', cols: 1, rows: 1, color: 'lightpink'},
-    {text: 'Four', cols: 2, rows: 1, color: '#DDBDF1'},
-  ];
+  imagen?: string
+  imagenes: string[]=[];
+ 
   letrasd: string = 'abcdefghijklmnñopqrstuvwxyz';
   alfabeto: any[]=[];
   palabras: string[] = [
@@ -36,13 +27,24 @@ export class AhorcadoComponent {
   ];
   palabra= '';
   palabraEscondida='';
-  vidas ='♥♥♥♥';
+  vidas: string="";
   private array:any[] = [];
   constructor(private router: Router, private userService: UserService){
     this.empezarJuego();
   }
 
   empezarJuego(){
+    this.vidas='♥♥♥♥♥♥♥'
+    this.imagenes=[
+      '../../assets/vida6.png',
+      '../../assets/vida5.png',
+      '../../assets/vida4.png',
+      '../../assets/vida3.png',
+      '../../assets/vida2.png',
+      '../../assets/vida1.png',
+      '../../assets/vida0.png'
+    ]
+    this.imagen = this.imagenes.pop();
     this.alfabeto = []
     for (const letra of this.letrasd) {
       this.alfabeto.push({ letra: letra, usada: false });
@@ -65,6 +67,7 @@ export class AhorcadoComponent {
     const test=this.palabraEscondida.split('');
     if(!this.array.includes(letra['letra'])){
       array.pop();
+      this.imagen = this.imagenes.pop();
       if(array.length==0){
         Swal.fire({
           icon: 'error',

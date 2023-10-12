@@ -29,7 +29,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
     MatButtonModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatProgressBarModule,ProfileModule
+    MatProgressBarModule,ProfileModule,
   ]
 })
 export class NavigationModule { }

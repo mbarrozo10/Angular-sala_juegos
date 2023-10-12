@@ -1,0 +1,14 @@
+<div class="container">
+    <h1> <br>Preguntas!</h1>
+    <h2>De que pais es la siguiente bandera?</h2>
+    <h2>Pregunta {{contador}}/10
+    </h2>
+<img [src]="pais['img']" alt="">
+
+<button  mat-fab extended color="primary" (click)="Verificar(0)"  >{{rtas[0]}}</button>
+<button  mat-fab extended color="primary" (click)="Verificar(1)">{{rtas[1]}}</button>
+<button  mat-fab extended color="primary"  (click)="Verificar(2)">{{rtas[2]}}</button>
+<button  mat-fab extended color="primary" (click)="Verificar(3)">{{rtas[3]}}</button>
+<h2>Preguntas acertadas: {{acertadas}}
+</h2>
+</div>

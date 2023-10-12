@@ -1,0 +1,23 @@
+h1
+{
+    margin-top: 20px;
+}
+
+.keyboard-button {
+    width: 100px;
+    height: 100px;
+    margin: 5px;
+    font-size: 60px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color:#4080FF ;
+  
+  }
+  .keyboard-container {
+    display:inline-flex;
+    flex-direction: column;
+    // flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+  }
