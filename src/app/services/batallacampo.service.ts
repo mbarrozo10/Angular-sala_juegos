@@ -32,7 +32,7 @@ export class BatallacampoService {
     while(salir){
     const indiceFilaAleatorio = Math.floor(Math.random() * array.length);
     const indiceColumnaAleatorio = Math.floor(Math.random() * array[0].length);
-    const arrayParaUbicar: any[] = ['X', 'X', 'X'];
+    const arrayParaUbicar: any[] = ['X1', 'X2', 'X3'];
 
     for(let i =0 ; i < 3 ; i++) {
       if(indiceColumnaAleatorio<3)

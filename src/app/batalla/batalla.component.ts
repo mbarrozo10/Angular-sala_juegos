@@ -11,21 +11,45 @@ import Swal from 'sweetalert2';
 export class BatallaComponent implements OnInit {
   tabler:any[]=[];
   tabler2:any[]=[];
-  jugadores:any[]=[];
+  jugador: any="";
   turno:any
   termino=false;
     constructor(private tablero: BatallacampoService, private auth: UserService){
-      this.tablero.tableroUno.forEach((x:any) => x.forEach((y:any) => this.tabler.push({
-        valor: y, usada:false
-      })));
-      this.tablero.tableroDos.forEach(x => x.forEach(y => this.tabler2.push({
-        valor: y, usada:false
-      })));
-      this.tablero.jugadores$.subscribe((x:any) =>{
-        this.jugadores.push(x);
-      });
+      this.tablero.tableroUno.forEach((x:any) => x.forEach((y:any) => {
+        if(y!='X1' && y!='X2' && y!='X3') 
+        this.tabler.push({valor: y, usada:false, img:"../../assets/soltar.png"})
+        else {switch(y){
+          case 'X1':
+            this.tabler.push({valor: y, usada:false, img:"../../assets/barco1.png"})
+            break;
+          case 'X2':
+            this.tabler.push({valor: y, usada:false, img:"../../assets/barco2.png"})
+            break;
+          case 'X3':
+            this.tabler.push({valor: y, usada:false, img:"../../assets/barco3.png"})
+            break;
+        }
+        }
+  }));
+      this.tablero.tableroDos.forEach(x => x.forEach(y => {
+        if(y!='X1' && y!='X2' && y!='X3') 
+        this.tabler2.push({valor: y, usada:false, img:"../../assets/soltar.png"})
+        else {switch(y){
+          case 'X1':
+            this.tabler2.push({valor: y, usada:false, img:"../../assets/barco1.png"})
+            break;
+          case 'X2':
+            this.tabler2.push({valor: y, usada:false, img:"../../assets/barco2.png"})
+            break;
+          case 'X3':
+            this.tabler2.push({valor: y, usada:false, img:"../../assets/barco3.png"})
+            break;
+        }
+        }
+      }));
     }
   ngOnInit(): void {
+    this.jugador =this.auth.retornarUsuario();
     const x= this.auth.retornarUsuario()?.toString()
     if(x)
     this.tablero.actualizarJugadores(x);
@@ -43,7 +67,7 @@ export class BatallaComponent implements OnInit {
     if(this.turno==this.auth.retornarUsuario()?.toString()){
       valor['usada']=true;
       valor['mostrar']=valor['valor']
-      if(valor['valor']=='X'){
+      if(valor['valor']=='X1' || valor['valor']=='X2' || valor['valor']=='X3'){
         this.pegados.push(valor);
         Swal.fire({
           title: 'le pegaste'
@@ -89,7 +113,7 @@ export class BatallaComponent implements OnInit {
       }
       this.tabler2[x]['usada']=true;
       this.tabler2[x]['mostrar']=this.tabler2[x]['valor'];
-      if(this.tabler2[x]['valor']=='X'){
+      if(this.tabler2[x]['valor']=='X1' || this.tabler2[x]['valor']=='X2' || this.tabler2[x]['valor']=='X3'){
         this.pegadosMaquina.push(this.tabler2[x]);
         Swal.fire({
           title: 'le pegaste'
