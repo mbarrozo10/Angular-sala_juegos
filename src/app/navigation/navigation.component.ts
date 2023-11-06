@@ -15,6 +15,7 @@ export class NavigationComponent {
   constructor(private service : UserService, private router: Router){
     this.Actualzar();
     this.nombre = this.service.retornarUsuario();
+    this.router.navigateByUrl('navigation/main',{replaceUrl:true});
   }
 
   Actualzar(){

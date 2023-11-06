@@ -18,12 +18,91 @@
     right: 15px;
     bottom: 15px;
     padding: -100px;
+    background-image: url("../../assets/pizarron.jpg"); 
+    background-size: 120% 120%;
+    background-position: center ; 
+    color: white;
+    mat-card-title{
+      background-color: #4080FF;
+      border-radius: 10px;
+    }
   }
-  
-  .more-button {
+  .mayor-card {
     position: absolute;
-    top: 5px;
-    right: 10px;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    padding: -100px;
+    background-image: url("../../assets/fondocartas.png"); 
+    background-size: 120% 120%;
+    background-position: center ; 
+    color: white;
+    mat-card-title{
+      background-color: #4080FF;
+      border-radius: 10px;
+    }
+  }
+
+  .preguntas-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    padding: -100px;
+    background-image: url("../../assets/mapa.jpg"); 
+    background-size: 120% 120%;
+    background-position: center ; 
+    color: white;
+    mat-card-title{
+      background-color: #4080FF;
+      border-radius: 10px;
+    }
+  }
+
+  .batalla-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    padding: -100px;
+    background-image: url("../../assets/mar.jpg"); 
+    background-size: 120% 120%;
+    background-position: center ; 
+    color: white;
+    mat-card-title{
+      background-color: #4080FF;
+      border-radius: 10px;
+    }
+  }
+
+  
+  .chat-card {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    padding: -100px;
+    background-image: url("../../assets/chat.jpg"); 
+    background-size: 120% 120%;
+    background-position: center ; 
+    color: white;
+    mat-card-title{
+      background-color: #4080FF;
+      border-radius: 10px;
+    }
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Fondo semitransparente (ajusta el valor alfa para la transparencia deseada) */
   }
   
   .dashboard-card-content {
@@ -32,8 +111,8 @@
   
   .chat-window{
     padding: 10px;
-    width: 300px;
-    height: 400px;
+    // width: 300px;
+    // height: 450px;
     overflow: hidden;
     border: 1px solid #4080FF;
     border-radius: 20px;
@@ -63,5 +142,5 @@
   body {
     background: linear-gradient(90deg, #C7C5F4, #776BCC);		
     background-color: #4C489D;
-    height: 1400px;
+    height: 1300px;
   }

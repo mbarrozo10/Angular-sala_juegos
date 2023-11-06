@@ -13,11 +13,10 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { ProfileModule } from '../profile/profile.module';
-import { DashboardComponent } from '../dashboard/dashboard.component';
+
 
 @NgModule({
-  declarations: [ YodescComponent,DashboardComponent,
+  declarations: [ YodescComponent,
     ],
   imports: [
     CommonModule,
@@ -29,7 +28,7 @@ import { DashboardComponent } from '../dashboard/dashboard.component';
     MatButtonModule,
     MatToolbarModule,
     MatSidenavModule,
-    MatProgressBarModule,ProfileModule,
+    MatProgressBarModule,
   ]
 })
 export class NavigationModule { }

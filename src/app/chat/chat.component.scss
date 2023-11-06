@@ -12,6 +12,7 @@
     border: 5px solid #4080FF;
     border-radius: 20px;
     margin-top: 10px;
+    background-color: rgba(25, 69, 126, 0.8);
   }
   .chat{
   overflow-y:scroll;
@@ -64,6 +65,7 @@
     font-size: 30px;
     border-radius: 60px;
     align-items:left;
+
   }
 
   #test{
@@ -74,6 +76,16 @@
     border-radius: 20px;
   }
 
-  #button-addon2, #floatingInput{
-    border-radius: 60px;
-  }
+
+#prueba{
+  margin-top: 20px;
+}
+
+.form-control{
+  border:2px solid #776BCC;
+}
+
+.enviar{
+  // --background: #776BCC;
+  background-color: #776BCC;
+}

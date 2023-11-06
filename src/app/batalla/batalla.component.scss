@@ -6,7 +6,7 @@ h1
 .keyboard-button {
     width: 100px;
     height: 100px;
-    margin: 5px;
+    // margin: 5px;
     font-size: 60px;
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -25,4 +25,8 @@ h1
   img{
     width: 60px;
     height: 60px;
+  }
+
+  .h1{
+    text-align: center;
   }

@@ -2,6 +2,9 @@ import { Component } from '@angular/core';
 import Swal from 'sweetalert2';
 import { UserService } from '../services/user.service';
 import { Router } from '@angular/router';
+import { MatButtonModule } from '@angular/material/button';
+import {MatSnackBar, MatSnackBarModule} from '@angular/material/snack-bar';
+
 @Component({
   selector: 'app-mayor-menor',
   templateUrl: './mayor-menor.component.html',
@@ -14,47 +17,87 @@ export class MayorMenorComponent {
   puntos=0;
   ultima="../../assets/cartas/back.png";
   actual="../../assets/cartas/back.png";
-  
-  constructor(private userService: UserService, private router: Router){
+  cartas:any[] = [];
+  constructor(private userService: UserService, private router: Router, private _snackBar: MatSnackBar){
     Swal.fire({
       icon: "info",
       title: 'Bienvenido!',
       text: 'El juego consite en adivinar si la siguiente carta es mayo o menor a la que esta en pantalla, solo hay 10 turnos!',
+      heightAuto:false
     })
+    this.empezarJuego()
+  }
+
+  empezarJuego(){
+    this.puntos=0;
+    this.cantidad=0;
+    this.cartas=[]
+    this.cartasSinTocar.forEach(x => this.cartas.push(x));
     this.carta= this.cartas[Math.floor(Math.random() * this.cartas.length)];
     this.ultima= this.carta['img']
   }
   verificar(letras: string){
-    this.ultima= this.carta['img']
+    // this.ultima= this.carta['img']
+    let textoFinal=""
     let noEsIgual: Boolean= true;
     let nuevaCarta: any="0";
-    while (noEsIgual) { 
+    console.log(this.cartas);
+    while (noEsIgual) {  //investigar funciones de js para igualdad 
       nuevaCarta=this.cartas[Math.floor(Math.random() * this.cartas.length)];
       if(nuevaCarta['numero']!=this.carta['numero'] && nuevaCarta['valor']!= this.carta['valor']){
         noEsIgual=false;
+        console.log(nuevaCarta);
+        this.cartas.splice(this.cartas.indexOf(nuevaCarta),1)
+        console.log(this.cartas);
+        console.log(this.cartasSinTocar)
       }
     }
     if(letras=="m" && nuevaCarta['numero'] > this.carta['numero']){
         this.puntos+=1;
+        this.openSnackBar("Adivinaste!","Cerrar")
     }else if(letras=="n" && nuevaCarta['numero'] < this.carta['numero']){
+      this.openSnackBar("Adivinaste!","Cerrar")
       this.puntos+=1;
-    } 
+    } else{
+      this.openSnackBar("Te equivocaste!","Cerrar")
+    }
     this.cantidad+=10;
     this.carta=nuevaCarta;
-    this.actual=this.carta['img']
+    this.ultima=this.carta['img']
     if(this.cantidad==100){
+      this._snackBar.dismiss()
+      if(this.puntos> 5){
+        textoFinal= "Termino, Ganaste!"
+      }else{
+        textoFinal= "Termino, Perdiste!"
+      }
       Swal.fire({
         icon: "info",
-        title: 'Termino',
+        title: textoFinal,
         text: 'Obtuviste: ' + this.puntos,
-      });
+        heightAuto:false
+
+      }).then(() =>{;
+      Swal.fire({
+        icon: 'info',
+        text: 'Queres volver a jugar?',
+        showCancelButton: true,
+        confirmButtonText: 'Si!',
+        cancelButtonText: "No.",
+        heightAuto:false
+      }).then((result) => {
+        if(result.isConfirmed){
+          this.empezarJuego();
+        }else{
+          this.router.navigateByUrl('/navigation/main',{replaceUrl: true});
+        }})})
       this.userService.GuardarPartidaMayor(this.puntos);
-      this.router.navigateByUrl('/navigation/main',{replaceUrl: true} );
+      // this.router.navigateByUrl('/navigation/main',{replaceUrl: true} );
     }
   }
 
 
-  private cartas: any[]=[
+  private cartasSinTocar: any[]=[
     { numero: 1, valor: "1 Espada", img: "../../assets/cartas/espada/1.jpeg" },
   { numero: 2, valor: "2 Espada", img: "../../assets/cartas/espada/2.jpeg" },
   { numero: 3, valor: "3 Espada", img: "../../assets/cartas/espada/3.jpeg" },
@@ -99,6 +142,10 @@ export class MayorMenorComponent {
   { numero: 11, valor: "11 Copa", img: "../../assets/cartas/copa/11.jpeg" },
   { numero: 12, valor: "12 Copa", img: "../../assets/cartas/copa/12.jpeg" }
   ]
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
+  }
 
 }
 

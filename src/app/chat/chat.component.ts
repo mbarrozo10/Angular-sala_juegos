@@ -1,7 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ChatService } from '../services/chat.service';
 import { UserService } from '../services/user.service';
-import { Observable } from 'rxjs';
 import { Router } from '@angular/router';
 
 @Component({

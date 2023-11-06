@@ -4,7 +4,6 @@
 
 <div class="chat-windows" *ngIf="mostrar">
     <h1>Chat</h1>
-    <hr>
     <div  class="chat" #chatContainer>
         <div *ngFor="let mensaje of mensajes; let i=index" [ngClass]="estilo[i]?.div">
         <p>{{mensaje.fecha}}</p>
@@ -17,16 +16,18 @@
         </div>
     </div>
    
-    <div class="input-group mb-3 form-floating mb-3">
-        <input class="form-control" type="text" id="floatingInput" name="mensaje" [(ngModel)]="mensaje" (keyup.enter)="enviarMensaje()" placeholder="Enviar Mensaje">
-        <label for="floatingInput">Enviar Mensaje</label>
-    
-        <button  (click)="enviarMensaje()" class="btn btn-outline custom-button" type="button" id="button-addon2">
+    <div id="prueba" class="input-group mb-3 form-floating mb-3">
+      
+        <input matInput class="form-control" type="text" id="floatingInput" name="mensaje" [(ngModel)]="mensaje" (keyup.enter)="enviarMensaje()" placeholder="Enviar Mensaje">
+        <label  for="floatingInput">Mensaje</label>
+        <button mat-fab color="primary" aria-label="Example icon button with a delete icon" (click)="enviarMensaje()" class="enviar">
             <i class="material-symbols-outlined">
                 arrow_forward_ios
             </i>
         </button>
+        <!-- <button  (click)="enviarMensaje()" class="btn btn-outline custom-button" type="button" id="button-addon2">
+           
+        </button> -->
     </div>
-    <button mat-raised-button (click)="salir()" id="ingresar">Salir</button>
 </div>
 </body>

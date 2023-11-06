@@ -2,25 +2,15 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
 <body>
 <div class="grid-container">
-    <h1 class="mat-h1">Main</h1>
-    <mat-grid-list cols="1" rowHeight="650px">
+    <mat-grid-list cols="1" rowHeight="550px">
       <mat-grid-tile >
         <mat-card class="chat-card">
           <mat-card-header>
             <mat-card-title>
-              Chat
-              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                <mat-icon>more_vert</mat-icon>
-              </button>
-              <mat-menu #menu="matMenu" xPosition="before">
-                <button mat-menu-item>Expand</button>
-                <button mat-menu-item>Remove</button>
-              </mat-menu>
             </mat-card-title>
           </mat-card-header>
           <mat-card-content class="dashboard-card-content">
             <div class="test">
-                <button mat-raised-button id="ingresar"  routerLink="chat">Ingresar</button>
                 <router-outlet class="test"></router-outlet>
             </div>
           </mat-card-content>
@@ -33,13 +23,6 @@
           <mat-card-header>
             <mat-card-title>
               Ahorcado
-              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                <mat-icon>more_vert</mat-icon>
-              </button>
-              <mat-menu #menu="matMenu" xPosition="before">
-                <button mat-menu-item>Expand</button>
-                <button mat-menu-item>Remove</button>
-              </mat-menu>
             </mat-card-title>
           </mat-card-header>
           <mat-card-content class="dashboard-card-content">
@@ -58,18 +41,11 @@
       </mat-grid-tile>
 
       <mat-grid-tile >
-        <mat-card class="ahorcado-card">
+        <mat-card class="mayor-card">
           <mat-card-header>
             <mat-card-title>
               Mayor o menor
-              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                <mat-icon>more_vert</mat-icon>
-              </button>
-              <mat-menu #menu="matMenu" xPosition="before">
-                <button mat-menu-item>Expand</button>
-                <button mat-menu-item>Remove</button>
-              </mat-menu>
-            </mat-card-title>
+                  </mat-card-title>
           </mat-card-header>
           <mat-card-content class="dashboard-card-content">
             <div class="container">
@@ -91,18 +67,11 @@
 
     <mat-grid-list cols="2" rowHeight="350px">
       <mat-grid-tile >
-        <mat-card class="chat-card">
+        <mat-card class="preguntas-card">
           <mat-card-header>
             <mat-card-title>
               Pregunta3
-              <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-                <mat-icon>more_vert</mat-icon>
-              </button>
-              <mat-menu #menu="matMenu" xPosition="before">
-                <button mat-menu-item>Expand</button>
-                <button mat-menu-item>Remove</button>
-              </mat-menu>
-            </mat-card-title>
+               </mat-card-title>
           </mat-card-header>
           <mat-card-content class="dashboard-card-content">
             <div class="container">
@@ -119,18 +88,11 @@
         </mat-card>
    </mat-grid-tile>
    <mat-grid-tile >
-    <mat-card class="ahorcado-card">
+    <mat-card class="batalla-card">
       <mat-card-header>
         <mat-card-title>
           Batalla Naval
-          <button mat-icon-button class="more-button" [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-            <mat-icon>more_vert</mat-icon>
-          </button>
-          <mat-menu #menu="matMenu" xPosition="before">
-            <button mat-menu-item>Expand</button>
-            <button mat-menu-item>Remove</button>
-          </mat-menu>
-        </mat-card-title>
+          </mat-card-title>
       </mat-card-header>
       <mat-card-content class="dashboard-card-content">
         <div class="container">

@@ -1,23 +1,32 @@
 .sidenav-container {
   height: 100%;
+  a{
+    color: white;
+  }
 }
 
 .sidenav {
   width: 200px;
+  background-color: #776BCC;
+  color: white;
 }
 
 .sidenav .mat-toolbar {
   background: inherit;
-  
+  color: white;
 }
 mat-toolbar{
   margin-bottom: -20px;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
 }
+
 
 .mat-toolbar.mat-primary {
   position: sticky;
   top: 0;
-  z-index: 1;
+  z-index: 10;
   // color: #776BCC;
   background-color: #776BCC
   
@@ -30,13 +39,38 @@ span{
 mat-nav-list {
   display: flex;
   flex-direction: column;
+  color: white;
+
 }
 
 #salir{
   margin-top: auto;
+  color: white !important;
+  
+}
+.mat-nav-list{
+  a{
+    color: white;
+  }
 }
 
 body {
   background: linear-gradient(90deg, #C7C5F4, #776BCC);		
   background-color: #4C489D;
+}
+
+#menu{
+  margin-bottom: -7px;
+}
+.mat-nav-list a {
+  color: white; /* Cambia el color de la fuente a blanco */
+  text-decoration: none; /* Elimina el subrayado en los enlaces si lo deseas */
+}
+
+.mat-nav-list a:hover {
+  color: yellow; /* Cambia el color del texto al pasar el mouse sobre los enlaces (opcional) */
+}
+
+.mat-menu-item{
+  color: white;
 }

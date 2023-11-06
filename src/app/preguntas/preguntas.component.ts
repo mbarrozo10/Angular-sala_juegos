@@ -5,6 +5,7 @@ import {
 import { BanderasService } from "../services/banderas-service.service";
 import Swal from "sweetalert2";
 import { Router } from "@angular/router";
+import { MatSnackBar } from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-preguntas',
@@ -12,8 +13,7 @@ import { Router } from "@angular/router";
   styleUrls: ['./preguntas.component.scss']
 })
 export class PreguntasComponent implements OnInit {
-  constructor(private banderas: BanderasService, private router: Router){
-    
+  constructor(private banderas: BanderasService, private router: Router, private _snackBar: MatSnackBar){
   }
   paises:any[]=[]
   pais:any;
@@ -22,6 +22,12 @@ export class PreguntasComponent implements OnInit {
   acertadas:number=0;
 
   ngOnInit(): void {
+    this.obtenerPaises().then(() => {
+    })
+
+  }
+
+  async obtenerPaises(){
     this.banderas.RetornarTodos().subscribe(data =>{
       this.paises=data;
       console.log(this.paises)
@@ -31,6 +37,9 @@ export class PreguntasComponent implements OnInit {
   
   elegirPreguntas(){
     const pais= this.paises[Math.floor(Math.random() * this.paises.length)]
+    console.log(this.paises)
+    const indexof=this.paises.indexOf(pais)
+    this.paises.splice(indexof,1)
     console.log(pais);
     this.pais={
       nombre: pais.name.common,
@@ -49,35 +58,45 @@ export class PreguntasComponent implements OnInit {
 
   Verificar(numero: number){
     if(this.rtas[numero] === this.pais.nombre){
-      Swal.fire({
-        title: "La pegaste!!"
-      })
+      this.openSnackBar("Adivinaste!","Cerrar")
       this.acertadas++;
     }else{
-      Swal.fire({
-        title: "Te equivocaste"
-      })
+      this.openSnackBar("Te equivocaste!","Cerrar")
     }
     this.contador++;
     if(this.contador==10){
+      this._snackBar.dismiss()
+      let text;
+      if(this.acertadas > 5) text="Ganaste!"
+      else text="Perdiste!"
       Swal.fire({
-        title: "Se termino el juego!" + "Las preguntas acertadas son:"  + this.acertadas,
+        title: text,
+        heightAuto:false
+      }).then(() =>
+      Swal.fire({
+        title: "Se termino el juego!" + " Las preguntas acertadas son: "  + this.acertadas,
         text:"Queres Volver a Jugar?",
         showCancelButton: true,
         confirmButtonText: 'Si!',
-        cancelButtonText: "No."
+        cancelButtonText: "No.",
+        heightAuto: false
       }).then((result) => {
         if(result.isConfirmed){
-          this.elegirPreguntas();
+          this.obtenerPaises()
           this.contador=1;
           this.acertadas=0;
         }else{
           this.router.navigateByUrl('/navigation/main',{replaceUrl: true});
 
-        }})
+        }}))
       }
     this.elegirPreguntas();
 
+  }
+
+  
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action);
   }
   
 }

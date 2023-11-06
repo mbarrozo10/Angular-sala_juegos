@@ -14,7 +14,7 @@ const routes: Routes = [
   //   {path: 'profile', component: ProfileComponent} ],
   // ...canActivate(() => redirectUnauthorizedTo(['/login']))},
   // {path: 'yodesc', component: YodescComponent}
-  {path: 'navigation', loadChildren: () => import('./navigation/navigation.module').then(m => m.NavigationModule)},
+  {path: 'navigation', loadChildren: () => import('./navigation/navigation.module').then(m => m.NavigationModule),...canActivate(() => redirectUnauthorizedTo(['/login']))},
 
 ];
 
